@@ -14,4 +14,4 @@
 * адаптивная вёрстка
 * JavaSkript
 
-[ссылка на проект] 
+[ссылка на проект]  https://golikova1987.github.io/mesto/
