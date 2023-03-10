@@ -1,0 +1,12 @@
+.cards__container {
+    max-width: 880px;
+    min-width: 282px;
+    margin: 46.25px 200px 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 720px) {
+    .cards__container {
+        margin: 36px 19px 0;
+    }
+}
