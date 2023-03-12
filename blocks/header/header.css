@@ -1,3 +1,14 @@
 .header {
     width: 100%;
+    max-width: 880px;
+    min-width: 320px;
+    margin: 45px 200px 0;
+    border-bottom: 1px solid rgba( 54, 54, 54, 0.7);
+    box-sizing: border-box;
+}
+
+@media (max-width: 720px) {
+    .header {
+        margin: 28px 0 0;
+    }
 }

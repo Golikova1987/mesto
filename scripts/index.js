@@ -1,8 +1,8 @@
 const popupElement = document.querySelector('.popup');
 const popupCloseButtonElement = popupElement.querySelector('.popup__close');
 const popupEditButtonElement = document.querySelector('.profile__edit-button');
-const nameInputElement = popupElement.querySelector('.popup__field-name');
-const jobInputElement = popupElement.querySelector('.popup__field-description');
+const nameInputElement = popupElement.querySelector('.popup__input_text_name');
+const jobInputElement = popupElement.querySelector('.popup__input_text_description');
 const saveButtonElement = popupElement.querySelector('.popup__button-save');
 const profileNameElement = document.querySelector('.profile__name');
 const profileDescriptionElement = document.querySelector('.profile__description');
@@ -29,8 +29,12 @@ const closePopupByClickOnOverlay = function(event) {
 function handleFormSubmit (evt) {
     evt.preventDefault();
 
+
+
     profileNameElement.textContent = nameInputElement.value;
     profileDescriptionElement.textContent = jobInputElement.value;
+
+    closePopup();
 
 };
 
@@ -40,4 +44,3 @@ popupCloseButtonElement.addEventListener('click', closePopup);
 popupElement.addEventListener('click', closePopupByClickOnOverlay);
 
 popupElement.addEventListener('submit', handleFormSubmit); 
-saveButtonElement.addEventListener('click', closePopup);
