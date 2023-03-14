@@ -16,6 +16,7 @@
     .profile__info {
         text-align: center;
         margin-top: 22.25px;
+        justify-content: center;
     }
 }
 
@@ -23,7 +24,6 @@
     .profile__info {
         grid-template-columns: 189px 18px;
         gap: 14px 10px;
-        margin-left: 46px;
 
     }
 }
