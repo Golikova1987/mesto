@@ -5,6 +5,9 @@
     margin: 0;
     grid-area: description;
     margin-bottom: 25px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 
 }
 
