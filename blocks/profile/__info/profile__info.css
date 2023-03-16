@@ -3,27 +3,23 @@
     min-width: 282px;
     margin: 0;
     margin-top: 22px;
-    display: grid;
-    grid-template-columns: 294px 18px;
-    gap: 16px 18px;
-    grid-template-areas: 
-    "name button"
-    "description .";
+    display: flex;
+    flex-direction: column;
 }
 
 
 @media (max-width: 910px) {
     .profile__info {
         text-align: center;
-        margin-top: 22.25px;
         justify-content: center;
+        align-items: center;
+        margin-top: 22.25px;
     }
 }
 
 @media (max-width: 790px) {
     .profile__info {
-        grid-template-columns: 189px 18px;
-        gap: 14px 10px;
+        
 
     }
 }
