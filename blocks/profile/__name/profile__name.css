@@ -3,7 +3,6 @@
     line-height: 48px;
     font-weight: 500;
     margin: 0;
-    grid-area: name;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -15,5 +14,6 @@
         font-size: 27px;
         line-height: 32.68px;
         padding: 0;
+        margin-right: 10px;
     }
 }
