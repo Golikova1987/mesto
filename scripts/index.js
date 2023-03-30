@@ -15,7 +15,7 @@ const cardsElement = document.querySelector('.cards__elements');
 
 //создание новой карточки
 const formButton = document.querySelector('.popup__save-card');
-const textInput = document.querySelector('.popup__input_text_name');
+const nameInput = document.querySelector('.popup__input_name');
 const linkInput = document.querySelector('.popup__input_link');
 
 //попап добавить место
@@ -100,7 +100,6 @@ const initialCards = [
     cardsElement.append(htmlElement);
   }
 
-
 // создание новой карточки
 
 function createCard (item) {
@@ -110,8 +109,9 @@ function createCard (item) {
 
 function handleSubmit (evt) {
   evt.preventDefault();
-  const item = [{name: textInput.value, link: linkInput.value}];
-  renderItem(item);
+  const card = {name: nameInput.value, link: linkInput.value};
+
+  renderItem(card);
   closePopupMesto();
 
 };
