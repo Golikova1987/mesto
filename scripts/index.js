@@ -96,13 +96,13 @@ const initialCards = [
     htmlElement.querySelector('.cards__photo').src = item.link;
 
     setEventListeners(htmlElement);
-    
-    cardsElement.append(htmlElement);
+    cardsElement.prepend(htmlElement);
   }
 
 // создание новой карточки
 
 function createCard (item) {
+
   cardsElement = renderItem(item);
   return cardsElement;
 }
@@ -112,8 +112,8 @@ function handleSubmit (evt) {
   const card = {name: nameInput.value, link: linkInput.value};
 
   renderItem(card);
+  cardsElement.prepend(card);
   closePopupMesto();
-
 };
 
 // удаление карточки
@@ -139,13 +139,12 @@ likeButton.forEach(activeLike => {
   });
 });
 
+
+
 // попап добавить место
 
 const openPopupMesto = function () {
     popupMestoElement.classList.add("popup_is-opened");
-
-    nameInputElement.value = cardsNameElement.textContent;
-    linkImageElement.value = cardsPhotoElement.textContent;
 };
 
 const closePopupMesto = function () {
