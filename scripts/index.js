@@ -10,7 +10,7 @@ const profileNameElement = document.querySelector('.profile__name');
 const profileDescriptionElement = document.querySelector('.profile__description');
 
 //template добавляю массив с карточками
-const cardsElement = document.querySelector('.cards__elements');
+const cardsElement = document.querySelector('.cards');
 
 //создание новой карточки
 const formButton = document.querySelector('.popup__save-card');
