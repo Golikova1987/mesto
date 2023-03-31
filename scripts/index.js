@@ -18,13 +18,13 @@ const nameInput = document.querySelector('.popup__input_name');
 const linkInput = document.querySelector('.popup__input_link');
 
 //попап добавить место
-const popupMestoElement = document.querySelector('.popup__mesto');
+const popupMestoElement = document.querySelector('#popup-mesto');
 const popupOpenButtonElement = document.querySelector('.profile__add-button');
 const linkImageElement = document.querySelector('.popup__input_link');
 const popupCloseButtonMesto = popupMestoElement.querySelector('.popup__close-mesto');
 
 //попап открытие картинки
-const popupOpenImageElement = document.querySelector('.popup__open-image');
+const popupOpenImageElement = document.querySelector('#popup-image');
 const popupImage = document.querySelector('.popup__image');
 const popupCaption = document.querySelector('.popup__caption');
 
