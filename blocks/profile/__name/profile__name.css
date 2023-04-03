@@ -6,6 +6,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    max-width: 294px;
     margin-right: 18px;
 }
 
@@ -15,5 +16,6 @@
         line-height: 32.68px;
         padding: 0;
         margin-right: 10px;
+        max-width: 189px;
     }
 }

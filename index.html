@@ -18,11 +18,11 @@
           <div class="profile__info" >
             <div class="profile__name-container">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
-              <button class="profile__edit-button" type="button"></button>
+              <button class="popup__open profile__edit-button" type="button"></button>
             </div>
             <p class="profile__description">Исследователь океана</p>
           </div>
-          <button class="profile__add-button" type="button"></button>
+          <button class="popup__open profile__add-button" type="button"></button>
         </div>
       </section>
       <section aria-label="Карточки с фотографиями" class="photos">
@@ -32,10 +32,10 @@
         <p class="footer__copyright">© 2020 Mesto Russia</p>
       </footer>
     </main>
-    <section class="popup">
+    <section class="popup" id="popup-profile">
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form name="popup" class="popup__form">
+        <form class="popup__form" name="form-profile">
           <input name="name" type="text" placeholder="Имя" class="popup__input popup__input_text_name">
           <input name="description" type="text" placeholder="О себе" class="popup__input popup__input_text_description">
           <button type="submit" class="popup__button-save">Сохранить</button>
@@ -46,20 +46,20 @@
     <section class="popup" id="popup-mesto">
       <div class="popup__container">
         <h2 class="popup__title">Новое место</h2>
-        <form name="popup" class="popup__form">
+        <form class="popup__form" name="form-mesto">
           <input name="name" type="text" placeholder="Название" class="popup__input popup__input_name">
           <input name="link" type="url" placeholder="Ссылка на картинку" class="popup__input popup__input_link">
-          <button type="submit" class="popup__button-save popup__save-card">Создать</button>
+          <button type="submit" class="popup__button-save">Создать</button>
         </form>
-        <button class="popup__close popup__close-mesto" type="button"></button>
+        <button class="popup__close" type="button"></button>
       </div>
     </section>
   </div>
-  <section class="popup" id="popup-image">
+  <section class="popup popup_background" id="popup-image">
     <figure class="popup__image-container">
       <img class="popup__image" src="#" alt="">
       <figcaption class="popup__caption"></figcaption>
-      <button class="popup__close-image" type="button"></button>
+      <button class="popup__close" type="button"></button>
     </figure>
   </section>
   <template class="cards__template">
@@ -72,6 +72,7 @@
       </div>
     </article>
 </template>
+  <script src="./scripts/cards.js"></script>
   <script src="./scripts/index.js"></script>  
 </body>
 </html>
