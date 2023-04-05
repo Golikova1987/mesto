@@ -1,8 +1,9 @@
-// попап редактирование профиля
+//общий класс для попапов
 const popup = document.querySelector('.popup');
-const formEditProfile = document.querySelector('.popup__form');
+//попап редактировния профиля
 const popupProfile = document.querySelector('#popup-profile');
-const buttonClosePopup = document.querySelectorAll('.popup__close');
+const formEditProfile = document.querySelector('.popup__form');
+const buttonClosePopupList = document.querySelectorAll('.popup__close');
 const buttonEditProfile = document.querySelector('.profile__edit-button');
 const nameInputElement = popup.querySelector('.popup__input_text_name');
 const jobInputElement = popup.querySelector('.popup__input_text_description');
@@ -14,16 +15,13 @@ const cardsElement = document.querySelector('.cards');
 const cardsTemplate = document.querySelector('.cards__template').content;
 
 //создание новой карточки
-const formButton = document.querySelector('.popup__save-card');
 const nameInput = document.querySelector('.popup__input_name');
 const linkInput = document.querySelector('.popup__input_link');
 
 //попап добавить место
-const popupMesto = document.querySelector('#popup-mesto');
+const popupMesto = document.querySelector('#popup-mesto');//
 const formAddMesto = popupMesto.querySelector('form[name="form-mesto"]');
 const buttonAddMesto = document.querySelector('.profile__add-button');
-const linkImageElement = document.querySelector('.popup__input_link');
-const popupCloseButtonMesto = popupMesto.querySelector('.popup__close-mesto');
 
 //попап открытие картинки
 const popupOpenImage = document.querySelector('#popup-image');
@@ -51,17 +49,18 @@ function closePopup(popup) {
   popup.classList.remove("popup_is-opened");
 };
 
-buttonClosePopup.forEach((button) => {
+buttonClosePopupList.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
 });
+
 
 const closePopupByClickOnOverlay = function(event) {
 
   if (event.target !== event.currentTarget) {
       return;
   }
-  closePopup(popup);
+  closePopup(popupProfile);
 };
 
 //сохранение редактирования профиля
@@ -138,4 +137,4 @@ buttonAddMesto.addEventListener('click', openPopupMesto);
 formEditProfile.addEventListener('submit', handleFormSubmitProfile); 
 formAddMesto.addEventListener('submit', handleFormSubmitMesto);
 
-popup.addEventListener('click', closePopupByClickOnOverlay);
+popupProfile.addEventListener('click', closePopupByClickOnOverlay);
