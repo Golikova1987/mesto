@@ -1,12 +1,10 @@
-//общий класс для попапов
-const popup = document.querySelector('.popup');
 //попап редактировния профиля
 const popupProfile = document.querySelector('#popup-profile');
 const formEditProfile = document.querySelector('.popup__form');
 const buttonClosePopupList = document.querySelectorAll('.popup__close');
 const buttonEditProfile = document.querySelector('.profile__edit-button');
-const nameInputElement = popup.querySelector('.popup__input_text_name');
-const jobInputElement = popup.querySelector('.popup__input_text_description');
+const nameInputElement = popupProfile.querySelector('.popup__input_text_name');
+const jobInputElement = popupProfile.querySelector('.popup__input_text_description');
 const profileNameElement = document.querySelector('.profile__name');
 const profileDescriptionElement = document.querySelector('.profile__description');
 
@@ -19,7 +17,7 @@ const nameInput = document.querySelector('.popup__input_name');
 const linkInput = document.querySelector('.popup__input_link');
 
 //попап добавить место
-const popupMesto = document.querySelector('#popup-mesto');//
+const popupMesto = document.querySelector('#popup-mesto');
 const formAddMesto = popupMesto.querySelector('form[name="form-mesto"]');
 const buttonAddMesto = document.querySelector('.profile__add-button');
 
