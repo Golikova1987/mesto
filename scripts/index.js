@@ -51,15 +51,24 @@ buttonClosePopupList.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
 });
-
-
-const closePopupByClickOnOverlay = function(event) {
-
-  if (event.target !== event.currentTarget) {
-      return;
+//закрытие попапов нажатием на Esc
+function closePopupKeyEsc (evt) {
+  if (evt.key === 'Escape') {
+    const keyEsc = document.querySelector('.popup_is-opened');
+    closePopup(keyEsc);
   }
-  closePopup(popupProfile);
 };
+
+//закрытие при клике рядом с попапом
+const popups = document.querySelectorAll('.popup');
+
+popups.forEach(popup => {
+  popup.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains("popup_is-opened")) {
+      closePopup(popup);
+    }
+  })
+});
 
 //сохранение редактирования профиля
 function handleFormSubmitProfile (event) {
@@ -134,5 +143,6 @@ buttonAddMesto.addEventListener('click', openPopupMesto);
 //coхранение данных в попапе
 formEditProfile.addEventListener('submit', handleFormSubmitProfile); 
 formAddMesto.addEventListener('submit', handleFormSubmitMesto);
-
-popupProfile.addEventListener('click', closePopupByClickOnOverlay);
+//закрытие попапов нажатием на Esc
+document.addEventListener('keydown', closePopupKeyEsc);
+ 
