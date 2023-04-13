@@ -29,6 +29,9 @@ const popupCaption = document.querySelector('.popup__caption');
 //открытие попапов
 function openPopup(popup) {
   popup.classList.add('popup_is-opened');
+  //закрытие попапов нажатием на Esc
+  document.addEventListener('keydown', closePopupKeyEsc);
+ 
 };
 
 const openPopupProfile = function () {
@@ -38,19 +41,30 @@ const openPopupProfile = function () {
   jobInputElement.value = profileDescriptionElement.textContent;
 };
 
+
 const openPopupMesto = function () {
   openPopup(popupMesto);
+
+const input = popupMesto.querySelector('.popup__input')
+const buttonSave = popupMesto.querySelector('.popup__button-save')
+if (!input.value) {
+  buttonSave.classList.add('popup__button-save_invalid')
+  buttonSave.setAttribute('disabled', '')
+}
 };
 
 //закрытие попапов
 function closePopup(popup) {
   popup.classList.remove("popup_is-opened");
+  //закрытие попапов нажатием на Esc
+  document.removeEventListener('keydown', closePopupKeyEsc);
 };
 
 buttonClosePopupList.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
 });
+
 //закрытие попапов нажатием на Esc
 function closePopupKeyEsc (evt) {
   if (evt.key === 'Escape') {
@@ -80,6 +94,7 @@ function handleFormSubmitProfile (event) {
   closePopup(popupProfile);
 
 };
+
 //сохранение новой карточки
 function handleFormSubmitMesto (event) {
   event.preventDefault();
@@ -143,6 +158,3 @@ buttonAddMesto.addEventListener('click', openPopupMesto);
 //coхранение данных в попапе
 formEditProfile.addEventListener('submit', handleFormSubmitProfile); 
 formAddMesto.addEventListener('submit', handleFormSubmitMesto);
-//закрытие попапов нажатием на Esc
-document.addEventListener('keydown', closePopupKeyEsc);
- 
