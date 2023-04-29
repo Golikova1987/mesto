@@ -64,7 +64,7 @@ const openPopupProfile = function() {
 
 
 const openPopupMesto = function() {
-  openPopup(popupMesto)
+  openPopup(popupMesto);
 };
 
 //закрытие попапов
