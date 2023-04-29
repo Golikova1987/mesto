@@ -7,7 +7,7 @@ class Card {
       this._openImage = openImage;
     }
   
-    _getTemplate () {
+    _getTemplate() {
       return document.querySelector(this._selectorTemplate).content.querySelector('.cards__element').cloneNode(true);
     }
   
@@ -17,25 +17,26 @@ class Card {
   
     _handleDelete = () => {
       this._cloneCard.remove();
+      this._cloneCard = null;
     }
   
     _handlePopupOpenImage = () => {
       this._openImage(this._data);
     }
   
-    _setEventListener () {
-      this._buttonLike.addEventListener ('click', this._handleLike);
+    _setEventListener() {
+      this._buttonLike.addEventListener('click', this._handleLike);
       this._buttonDelete.addEventListener('click', this._handleDelete);
       this._photoElement.addEventListener('click', this._handlePopupOpenImage);
     }
   
-    createCard () {
+    createCard() {
       this._cloneCard = this._getTemplate();
       this._buttonLike = this._cloneCard.querySelector('.cards__button-like');
       this._buttonDelete = this._cloneCard.querySelector('.cards__button-delete');
       this._photoElement = this._cloneCard.querySelector('.cards__photo');
       this._titleCard = this._cloneCard.querySelector('.cards__title');
-      this._setEventListener()
+      this._setEventListener();
     
       this._photoElement.src = this._link;
       this._photoElement.alt = this._name;

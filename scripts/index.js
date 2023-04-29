@@ -1,6 +1,6 @@
 import FormValidator from "./formValidator.js";
 import initialCards from "./cards.js";
-import Card from "./card.js";
+import Card from "./Сard.js";
 
 const validationConfig = {
   inputSelector: '.popup__input',
@@ -55,7 +55,7 @@ function openPopup(popup) {
  
 };
 
-const openPopupProfile = function () {
+const openPopupProfile = function() {
   openPopup(popupProfile);
 
   nameInputElement.value = profileNameElement.textContent;
@@ -63,7 +63,7 @@ const openPopupProfile = function () {
 };
 
 
-const openPopupMesto = function () {
+const openPopupMesto = function() {
   openPopup(popupMesto);
 };
 
@@ -79,7 +79,7 @@ buttonClosePopupList.forEach((button) => {
 });
 
 //закрытие попапов нажатием на Esc
-function closePopupKeyEsc (evt) {
+function closePopupKeyEsc(evt) {
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_is-opened');
     closePopup(openedPopup);
@@ -98,18 +98,19 @@ popups.forEach(popup => {
 });
 
 //сохранение редактирования профиля
-function handleFormSubmitProfile (event) {
+function handleFormSubmitProfile(event) {
   event.preventDefault();
 
   profileNameElement.textContent = nameInputElement.value;
   profileDescriptionElement.textContent = jobInputElement.value;
 
   closePopup(popupProfile);
+  profileFormInstance.disableButton();//деактивация кнопки
 
 };
 
 //сохранение новой карточки
-function handleFormSubmitMesto (event) {
+function handleFormSubmitMesto(event) {
   event.preventDefault();
   const cardData = {name: nameInput.value, link: linkInput.value};
 
@@ -118,21 +119,19 @@ function handleFormSubmitMesto (event) {
 
   closePopup(popupMesto);
   event.target.reset();//очистить попап
-  //деактивирую кнопку
-  event.submitter.classList.add("popup__button-save_invalid");
-  event.submitter.setAttribute("disabled", "");
+  addMestoFormInstance.disableButton();//деактивация кнопки
 }; 
 
 //открытие попапа с картинкой
-function openImage (data) {
-      popupImage.src = data.link;
-      popupImage.alt = data.name;
-      popupCaption.textContent = data.name;
-      openPopup(popupOpenImage);
+function openImage(data) {
+  popupImage.src = data.link;
+  popupImage.alt = data.name;
+  popupCaption.textContent = data.name;
+  openPopup(popupOpenImage);
 };
 
 
-function addNewCard (item) {
+function addNewCard(item) {
   const card = new Card(item, selectorTemplate, openImage);
   const newCard = card.createCard();
   return newCard;
