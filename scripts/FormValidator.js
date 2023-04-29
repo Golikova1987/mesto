@@ -24,7 +24,7 @@ class FormValidator {
 					if (this._hasInvalidInput()) {
 						this.disableButton();
 					} else {
-						this._enableButton();	
+						this._enableButton();
 					}
 				})
 			})
