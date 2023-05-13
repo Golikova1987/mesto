@@ -2,7 +2,7 @@ class Card {
     constructor(data, selectorTemplate, openImage) {
       this._data = data;
       this._link = data.link;
-      this._name = data.name;
+      this._name = data.mesto;
       this._selectorTemplate = selectorTemplate;
       this._openImage = openImage;
     }
