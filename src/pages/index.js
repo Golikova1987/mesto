@@ -49,26 +49,27 @@ const popupCardDelete = new PopupDeleteCard(popupDeleteCardSelector, ({ card, ca
   api.deleteCard(cardId)
     .then(() => {
       card.removeCard()
+      popupCardDelete.close()
     })
     .catch((error => console.error(`Ошибка удаления карточки ${error}`)))
     .finally(() => popupCardDelete.changeTextButton())
-    popupCardDelete.close()
 })
 
 const profilePopup = new PopupWithForm(popupProfileSelector, (data) => {
   api.setUserInfo(data)
   .then(res => {
     userInfo.setUserInfo({ name: res.name, description: res.about, avatar: res.avatar });
+    profilePopup.close();
   })
   .catch((error => console.error(`Ошибка редактирования профиля ${error}`)))
   .finally(() => profilePopup.changeTextButton())
-  profilePopup.close();
 });
 
 const popupMesto = new PopupWithForm(popupMestoSelector, (data) => {
-  Promise.all([api.getInfo(), api.addCard(data)])
-    .then(([dataUser, dataCard]) => {
-      dataCard.myid = dataUser._id;
+  api.addCard(data)
+    .then(dataCard => {
+      //console.log(userInfo.getId);
+      dataCard.myid = userInfo.getId();
       section.addItem(createNewCard(dataCard));
       popupMesto.close();
     })
@@ -82,14 +83,14 @@ function createNewCard(element) {
     if (likeElement.classList.contains('cards__button-like_active')){
       api.deleteLike(cardId)
         .then(res => {
-          console.log(res)
+          //console.log(res)
           card.toggleLike(res.likes)
         })
         .catch((error => console.error(`Ошибка удаления лайка ${error}`)))
     } else {
       api.addLike(cardId) 
         .then(res => {
-          console.log(res)
+          //console.log(res)
           card.toggleLike(res.likes)
         })
         .catch((error => console.error(`Ошибка добавления лайка ${error}`)))
@@ -106,10 +107,10 @@ const popupEditAvatar = new PopupWithForm(popupAvatarSelector, (data) => {
   api.setAvatar(data)
     .then(res => {
       userInfo.setUserInfo({ name: res.name, description: res.about, avatar: res.avatar })
+      popupEditAvatar.close();
     })
     .catch((error => console.error(`Ошибка обновления аватара ${error}`)))
     .finally(() => popupEditAvatar.changeTextButton())
-    popupEditAvatar.close();
 });
 
 profilePopup.setEventListeners();
@@ -145,6 +146,7 @@ Promise.all([api.getInfo(), api.getInitialCards()])
       description: dataUser.about,
       avatar: dataUser.avatar,
     });
+    userInfo.setId(dataUser._id);
     section.addCardsFromArray(dataCard);
   }
 )
