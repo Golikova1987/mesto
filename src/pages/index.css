@@ -51,4 +51,4 @@
 @import url(../blocks/popup/__image/popup__image.css);
 @import url(../blocks/popup/__close-image/popup__close-image.css);
 
-@import url(../blocks/popup/__title/_delete/popup__title_delete.css);
+@import url(../blocks/popup/__title/_type/popup__title_type_delete.css);
